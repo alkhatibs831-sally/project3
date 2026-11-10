@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habit Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar mb-4">
+    <div class="container">
+      <span class="navbar-brand">Habit Tracker</span>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+
+    <div class="row g-3 mb-4">
+      <div class="col-12 col-md-4">
+        <div class="card stat-card">
+          <div class="card-body">
+            <p class="stat-label">Done today</p>
+            <h3 id="doneTodayCount">0/0</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card stat-card">
+          <div class="card-body">
+            <p class="stat-label">Number of habits</p>
+            <h3 id="habitCount">0</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card stat-card">
+          <div class="card-body">
+            <p class="stat-label">Best streak</p>
+            <h3 id="bestStreakCount">0 </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4 p-3">
+      <div class="d-flex justify-content-between mb-1">
+        <span class="fw-bold progress-title">Daily Progress</span>
+        <span id="progressText" class="fw-bold">0%</span>
+      </div>
+      <div class="progress" style="height: 10px;">
+        <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="card form-card mb-4">
+      <div class="card-body">
+        <h5 class="mb-3">Add a new habit</h5>
+
+        <form id="habitForm" novalidate>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="habitName" class="form-label">Habit name</label>
+              <input type="text" id="habitName" class="form-control" placeholder="e.g. Read a book">
+              <div class="error-msg" id="habitNameError"></div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="habitCategory" class="form-label">Category</label>
+              <select id="habitCategory" class="form-select">
+                <option value="">Choose a category</option>
+                <option value="Health">Health</option>
+                <option value="Study">Study</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Productivity">Productivity</option>
+                <option value="Mindfulness">Mindfulness</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="error-msg" id="habitCategoryError"></div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-main mt-3">Add habit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row g-2 mb-3 align-items-center">
+      <div class="col-12 col-md-4">
+        <h5 class="mb-0">My habits</h5>
+      </div>
+      <div class="col-12 col-md-4">
+        <select id="filterHabits" class="form-select">
+          <option value="all">All habits</option>
+          <option value="done">Done today</option>
+          <option value="not-done">Not done today</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-4 text-md-end">
+        <button id="newDayBtn" class="btn btn-outline-secondary w-100 w-md-auto">🌅 Start a new day</button>
+      </div>
+    </div>
+
+    <div class="row g-3" id="habitList"></div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
